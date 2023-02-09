@@ -8,7 +8,7 @@ body, html {
 .app {
   margin: 0;
   outline: 0;
-  background-color: hsl(0deg, 0%, 98%);
+  background-color: hsl(0deg, 0%, 97%);
 }
 .app--dark {
   background-color: #2B4143;
@@ -30,6 +30,11 @@ body, html {
   border: none;
   color: hsl(0deg, 0%, 100%);
 }
+.nav__img {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin: 0.7rem 0.5rem 0 0;
+}
 .nav__title {
   min-width: 70%;
   flex-grow: 1;
@@ -41,6 +46,10 @@ body, html {
   font-weight: 400;
   cursor: pointer;
 }
+.nav__mode:hover {
+  transform: scale(1.1);
+  border: none;
+}
 
 .fa-search {
   color: hsl(0deg, 0%, 52%);
@@ -48,11 +57,6 @@ body, html {
   top: 0.9rem;
   font-size: 0.6rem;
   left: 1.3rem;
-}
-
-.fa-moon {
-  margin-left: -4rem;
-  cursor: pointer;
 }
 
 .hero {
@@ -94,7 +98,6 @@ body, html {
   width: 10rem;
   left: 80%;
   top: -1rem;
-  vertical-align: 10px;
 }
 .hero__input__dropdown__text {
   position: absolute;
@@ -183,4 +186,103 @@ img {
   height: 7rem;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+@media screen and (max-width: 600px) {
+  .app {
+    min-width: 375px;
+  }
+  .nav {
+    min-width: 17rem;
+    padding-left: 0;
+    padding-right: 0;
+    min-height: 6rem;
+  }
+  .nav__title {
+    width: 30%;
+    margin-left: 1rem;
+    margin-top: 2rem;
+  }
+  .nav__mode {
+    margin-top: 2.2rem;
+    padding-right: 0.7rem;
+  }
+  .nav__img {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin: 1.8rem 0rem 0 -4rem;
+  }
+  .hero__input {
+    margin: 3rem -14rem 0 2rem;
+    position: relative;
+  }
+  .hero__input__search {
+    padding: 0 6rem;
+    min-width: 21rem;
+    min-height: 4rem;
+    margin-left: -1rem;
+  }
+  .hero__input__dropdown {
+    min-height: 3.5rem;
+    min-width: 9rem;
+    left: -1rem;
+    top: 6rem;
+  }
+  .hero__input__dropdown__text {
+    top: 0rem;
+    width: 60%;
+  }
+  .hero__input__dropdown__menu {
+    width: 100%;
+    height: 5rem;
+    padding-bottom: 4rem;
+    top: 3.7rem;
+    border-radius: 1rem;
+    line-height: 2.7rem;
+  }
+  .hero__input__dropdown__menu__item {
+    padding-left: 2.4rem;
+  }
+  .hero__section {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 7rem 0 0 3rem;
+  }
+  .hero__section__card {
+    min-width: 16rem;
+    min-height: 20rem;
+    border: none;
+    background-color: hsl(0deg, 0%, 100%);
+  }
+  .hero__section__card__country {
+    font-size: 1rem;
+    font-weight: 900;
+  }
+  .hero__section__card--dark {
+    background-color: #2B3743;
+    color: hsl(0deg, 0%, 100%);
+  }
+  .hero__section__card:last-child {
+    margin-bottom: 2rem;
+  }
+  .hero__section--dark {
+    background-color: #2B3743;
+    color: hsl(0deg, 0%, 100%);
+  }
+  img {
+    width: 100%;
+    height: 10rem;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .fa-search {
+    color: hsl(0deg, 0%, 52%);
+    top: 1.6rem;
+    font-size: 1rem;
+  }
+  ul svg {
+    margin-top: 1.3rem;
+    margin-left: 7.4rem;
+  }
 }/*# sourceMappingURL=styles.css.map */

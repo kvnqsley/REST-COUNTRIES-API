@@ -1,36 +1,13 @@
 
-// ## Colors
+//  Colors
 
 
 $DarkBlue : hsl(209, 23%, 22%);
 $VeryDark: hsl(207, 26%, 17%);
 $VeryDark: hsl(200, 15%, 8%);
 $DarkGray: hsl(0, 0%, 52%);
-$VeryLight: hsl(0, 0%, 98%);
+$VeryLight: hsl(0, 0%, 97%);
 $White: hsl(0, 0%, 100%);
-
-// ## Typography
-
-// ### Body Copy
-
-// - Homepage Items: 14px
-// - Detail Page: 16px 
-
-// ### Fonts
-
-// - Family: [Nunito Sans](https://fonts.google.com/specimen/Nunito+Sans)
-// - Weights: 300, 600, 800
-
-// ## Icons
-
-// For the icons, you can use a font icon library. Don't worry if the icons that you choose don't look exactly like they do on the design.
-
-// Some suggestions can be found below:
-
-// - [Font Awesome](https://fontawesome.com)
-// - [IcoMoon](https://icomoon.io)
-// - [Ionicons](https://ionicons.com)
-
 
 body,html{
 padding: 0;
@@ -65,7 +42,12 @@ padding-right: 3rem;
     border: none;
     color: $White;
 }
+&__img{
+    width: 1.6rem;
+    height: 1.6rem;
+    margin: 0.7rem .5rem  0 0;
 
+}
 &__title{
    min-width: 70%;
    flex-grow: 1;
@@ -79,6 +61,10 @@ font-weight: 900;
     font-weight: 400;
     cursor: pointer;
 }
+&__mode:hover{
+  transform: scale(1.1);
+    border:none
+}
 
 }
 
@@ -89,10 +75,7 @@ font-weight: 900;
     font-size: .6rem;
     left: 1.3rem;
 }
-.fa-moon{
-    margin-left: -4rem;
-    cursor: pointer;
-}
+
 .hero{
     min-height: 100vh;
     width: 100%;
@@ -139,7 +122,7 @@ font-weight: 900;
         width: 10rem; 
         left: 80%;
         top: -1rem;
-vertical-align: 10px;
+
 
 
         &__text{
@@ -247,4 +230,139 @@ img{
 width: 100%;
 height: 7rem;
 object-fit: cover;
+}
+
+
+@media screen and(max-width:600px) {
+  
+    .app{
+        min-width: 375px;
+        
+    }
+    .nav{
+        min-width: 17rem;
+        padding-left: 0;
+        padding-right: 0;
+        min-height: 6rem;
+
+
+        &__title{
+            width: 30%;
+            margin-left: 1rem;
+            margin-top:  2rem;
+         }
+
+         &__mode{
+            margin-top:  2.2rem;
+           padding-right: .7rem;
+        }
+        &__img{
+            width: 1.6rem;
+            height: 1.6rem;
+            margin: 1.8rem 0rem  0 -4rem;
+        
+        }
+    }
+
+    .hero{
+
+    &__input{
+        
+   margin: 3rem -14rem 0 2rem;
+   position: relative;
+
+       
+   &__search{
+    padding: 0 6rem;
+    min-width: 21rem;
+    min-height: 4rem;
+    margin-left: -1rem;
+ 
+    }
+
+    &__dropdown{
+    min-height: 3.5rem;
+    min-width: 9rem; 
+    left: -1rem;
+    top: 6rem;
+
+
+
+    &__text{
+       top: 0rem;
+        width: 60%;
+     
+    }
+
+
+    &__menu{
+        width: 100%;
+        height: 5rem;
+        padding-bottom: 4rem;
+        top: 3.7rem;
+        border-radius: 1rem;
+line-height:2.7rem ;
+
+
+       &__item{
+            padding-left: 2.4rem;
+          }
+
+    }
+}
+
+
+        }
+        &__section{
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+           margin: 7rem 0 0 3rem;
+
+
+            &__card{
+              min-width: 16rem;
+              min-height: 20rem;
+              border: none;
+              background-color: $White;
+
+
+              &__country{
+                font-size: 1rem;
+                font-weight: 900;
+            }
+
+                &--dark{
+                    background-color: #2B3743;
+                    color: $White;
+                    }
+            }
+            &__card:last-child{
+            margin-bottom: 2rem;
+            }
+            &--dark{
+                background-color: #2B3743;
+                color: $White;
+                }
+        }
+    
+    }
+    img{
+        width: 100%;
+        height: 10rem;
+        object-fit: cover;
+        }
+        .fa-search{
+            color: $DarkGray;
+            top: 1.6rem;
+            font-size: 1rem;
+          
+        }
+ul svg{
+    margin-top: 1.3rem;
+    margin-left: 7.4rem;
+}
+*{
+    //outline: 1rem solid red;
+}
 }
