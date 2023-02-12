@@ -17,10 +17,10 @@ font-family:Nunito, sans-serif ;
 }
 .app{
 margin: 0;
-outline: 0;
+padding: 0;
 min-height: 100vh;
     background-color: $VeryLight;
- 
+ max-width: 1440px;
     &--dark{
         background-color: #2B4143;
         
@@ -226,7 +226,6 @@ font-weight: 900;
 }
 
 .hero2{
-    min-height: 100vh;
     width: 100%;
     position: absolute;
 
@@ -283,8 +282,8 @@ font-weight: 900;
 
         &__img{
           width: 40%;
-          height: 20rem;
-         
+          height: 25rem;
+         object-fit: cover;
         }
 
         &__details{
@@ -337,26 +336,41 @@ font-weight: 900;
 
 
            &__border{
-display: grid;
-grid-template-columns: auto auto;
-
-
+                display: grid;
+                grid-template-columns: auto auto;
+                font-weight: 600;
+                padding-top: 3rem;
 
             &__list{
                 display: flex;
                 list-style-type: none;
-                justify-content: space-between;
-                margin-top: 0;
-                           }
-           }
+                margin-top: -.5rem;
+                margin-left: 0;
+                padding-left: 0rem;
+                gap: .4rem;
+                max-width: 100%;
+                overflow-x: wrap;
 
-          
-          
+                &__item{
+                    border: none;
+                    padding: .5rem 3rem;
+                  font-weight: 400;
+                  box-shadow: 3px 0px 4px 0px;
+                background-color: transparent;
+         
+            
+                }
+
+                &__item:hover{
+                    cursor: pointer;
+                  }
         }
     }
 }
 
+    }
 
+}
 //extra
 ul svg{
    
@@ -380,7 +394,7 @@ object-fit: cover;
   
     .app{
         min-width: 375px;
-        // min-height: 100vh;
+         min-height: 300vh;
     }
     .nav{
         min-width: 17rem;

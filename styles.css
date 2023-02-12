@@ -7,9 +7,10 @@ body, html {
 
 .app {
   margin: 0;
-  outline: 0;
+  padding: 0;
   min-height: 100vh;
   background-color: hsl(0deg, 0%, 97%);
+  max-width: 1440px;
 }
 .app--dark {
   background-color: #2B4143;
@@ -181,7 +182,6 @@ body, html {
 }
 
 .hero2 {
-  min-height: 100vh;
   width: 100%;
   position: absolute;
 }
@@ -226,7 +226,9 @@ body, html {
 }
 .hero2__card__img {
   width: 40%;
-  height: 20rem;
+  height: 25rem;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .hero2__card__details {
   margin-top: -1rem;
@@ -264,12 +266,28 @@ body, html {
 .hero2__card__details__border {
   display: grid;
   grid-template-columns: auto auto;
+  font-weight: 600;
+  padding-top: 3rem;
 }
 .hero2__card__details__border__list {
   display: flex;
   list-style-type: none;
-  justify-content: space-between;
-  margin-top: 0;
+  margin-top: -0.5rem;
+  margin-left: 0;
+  padding-left: 0rem;
+  gap: 0.4rem;
+  max-width: 100%;
+  overflow-x: wrap;
+}
+.hero2__card__details__border__list__item {
+  border: none;
+  padding: 0.5rem 3rem;
+  font-weight: 400;
+  box-shadow: 3px 0px 4px 0px;
+  background-color: transparent;
+}
+.hero2__card__details__border__list__item:hover {
+  cursor: pointer;
 }
 
 ul svg {
@@ -294,6 +312,7 @@ img {
 @media screen and (max-width: 600px) {
   .app {
     min-width: 375px;
+    min-height: 300vh;
   }
   .nav {
     min-width: 17rem;

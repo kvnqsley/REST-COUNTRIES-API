@@ -24,7 +24,7 @@ const capital=document.querySelectorAll('.hero2__card__details__container--1__te
 const tld=document.querySelectorAll('.hero2__card__details__container--2__text')[0];
 const currency=document.querySelectorAll('.hero2__card__details__container--2__text')[1];
 const lang=document.querySelectorAll('.hero2__card__details__container--2__text')[2];
-
+const borders=document.querySelector('.hero2__card__details__border__list')
 
 //Toggle theme
 
@@ -143,65 +143,32 @@ function populateCountryimg(id) {
 }
 function populatePopulation(id) {
     return data[id].population
+};
+function populateBorders(id) {
+
+    
+    return data[id].borders 
+};
+
+//populating details
+let sectionHtml=''
+
+for (let i = 0; i < data.length; i++) {
+   sectionHtml+= `<div class="hero__section__card">
+    <img src='${populateCountryimg(i)}'alt='flag' >
+    <p class="hero__section__card__country">${populateCountry(i)}</p>
+    <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Population:<span/>${populatePopulation(i)}</p>
+    
+    </div>`
+
+   
+    
 }
-
-//Generate random country
- randomNum=Math.floor(Math.random()*data.length)
-
-
-section.innerHTML=`<div class="hero__section__card">
-<img src='${populateCountryimg(randomNum)}'alt='flag' >
-<p class="hero__section__card__country">${populateCountry(randomNum)}</p>
-<p class="hero__section__card__population"><span class='hero__section__card__population__span'>Population:<span/>${populatePopulation(randomNum)}</p>
-
-</div>
-<div class="hero__section__card">
-<img src='${populateCountryimg(Math.floor((randomNum/2)+90))}'alt='flag' >
-<p class="hero__section__card__country">${populateCountry(Math.floor((randomNum/2)+90))}</p>
-<p class="hero__section__card__population"><span class='hero__section__card__population__span'>Population:<span/>${populatePopulation(Math.floor((randomNum/2)+90))}</p>
-
-</div>
-<div class="hero__section__card">
-<img src='${populateCountryimg(Math.floor((randomNum/3)+90))}'alt='flag' >
-<p class="hero__section__card__country">${populateCountry(Math.floor((randomNum/3)+90))}</p>
-<p class="hero__section__card__population"><span class='hero__section__card__population__span'>Population:<span/>${populatePopulation(Math.floor((randomNum/3)+90))}</p>
-
-</div>
-<div class="hero__section__card">
-<img src='${populateCountryimg(Math.floor((randomNum/4)+90))}'alt='flag' >
-<p class="hero__section__card__country">${populateCountry(Math.floor((randomNum/4)+90))}</p>
-<p class="hero__section__card__population"><span class='hero__section__card__population__span'>Population:<span/>${populatePopulation(Math.floor((randomNum/4)+90))}</p>
-
-</div>
-<div class="hero__section__card">
-<img src='${populateCountryimg(Math.floor((randomNum/5)+90))}'alt='flag'>
-<p class="hero__section__card__country">${populateCountry(Math.floor((randomNum/5)+90))}</p>
-<p class="hero__section__card__population"><span class='hero__section__card__population__span'>Population:<span/>${populatePopulation(Math.floor((randomNum/5)+90))}</p>
-
-</div>
-<div class="hero__section__card">
-<img src='${populateCountryimg(Math.floor((randomNum/6)+90))}'alt='flag'>
-<p class="hero__section__card__country">${populateCountry(Math.floor((randomNum/6)+90))}</p>
-<p class="hero__section__card__population"><span class='hero__section__card__population__span'>Population:<span/>${populatePopulation(Math.floor((randomNum/6)+90))}</p>
-
-</div>
-<div class="hero__section__card">
-<img src='${populateCountryimg(Math.floor((randomNum/7)+90))}'alt='flag'>
-<p class="hero__section__card__country">${populateCountry(Math.floor((randomNum/7)+90))}</p>
-<p class="hero__section__card__population"><span class='hero__section__card__population__span'>Population:<span/>${populatePopulation(Math.floor((randomNum/7)+90))}</p>
-
-</div>
-<div class="hero__section__card">
-<img src='${populateCountryimg(Math.floor((randomNum/8)+90))}'alt='flag'>
-<p class="hero__section__card__country">${populateCountry(Math.floor((randomNum/8)+90))}</p>
-<p class="hero__section__card__population"><span class='hero__section__card__population__span'>Population:<span/>${populatePopulation(Math.floor((randomNum/8)+90))}</p>
-
-</div>`
-const heroCards=document.querySelectorAll('.hero__section__card');
-
+section.innerHTML=sectionHtml
+console.log(data[30].alpha3Code);
 
 //Clicking each card for on the main page event
-function populateDetails(id) {
+async function populateDetails(id) {
      main2Img.setAttribute('src',data[id].flags.png);
     main2Header.textContent=data[id].name;
     nativeName.innerHTML=`Native name: <span class='hero2__card__details__container--1__text__span'>${data[id].nativeName}</span>`;
@@ -221,43 +188,52 @@ function populateDetails(id) {
      }</span>`
      currency.innerHTML= `Currencies: <span class='hero2__card__details__container--2__text__span'>${currencies.join()
      }</span>`;
+
+     //populate border countries
+     try {
+         if (populateBorders(id)== undefined) ;
+        n=0;
+        borderhtml=''
+        while (n<data[id].borders.length) {
+           
+       const border=data.findIndex(x=>x.alpha3Code==populateBorders(id)[n])
+         
+             borderhtml+=`<li class='hero2__card__details__border__list__item'>${data[border].name}<li/>`
+
+        n++ 
+      }
+      borders.innerHTML=borderhtml
+     } catch (error) {
+         borders.innerHTML=`<li class='hero2__card__details__border__list__item--error'>None<li/>`
+     }
+     
     main.classList.toggle('display');
     main2.classList.toggle('display');
 }
-heroCards[0].addEventListener('click',()=>{
-    populateDetails(randomNum)
-});
-heroCards[1].addEventListener('click',()=>{
-    populateDetails(Math.floor((randomNum/2)+90))
-});
-heroCards[2].addEventListener('click',()=>{
-    populateDetails(Math.floor((randomNum/3)+90))
-});
-heroCards[3].addEventListener('click',()=>{
-    populateDetails(Math.floor((randomNum/4)+90))
-});
-heroCards[4].addEventListener('click',()=>{
-    populateDetails(Math.floor((randomNum/5)+90))
-});
-heroCards[5].addEventListener('click',()=>{
-    populateDetails(Math.floor((randomNum/6)+90))
-});
-heroCards[6].addEventListener('click',()=>{
-    populateDetails(Math.floor((randomNum/7)+90))
-});
-heroCards[7].addEventListener('click',()=>{
-    populateDetails(Math.floor((randomNum/8)+90))
-});
 
+for (let i = 0; i < data.length; i++) {
+   
+    const heroCards=document.querySelectorAll('.hero__section__card');
+  heroCards[i].onclick=  function () {
+       populateDetails(i)
+     window.scrollTo(top)
+    
+    }
+
+}
+const heroCards=document.querySelectorAll('.hero__section__card');
 
 heroCards.forEach(element=>{
     theme.addEventListener('click',()=>{
         element.classList.toggle('hero__section__card--dark');
+        });
     })
-    })
+
+
+
 }) 
 
 
-},1000).catch(err=>{
-    console.error(new Error(err));
+},5000).catch(err=>{
+    console.error(err.name);
 });
