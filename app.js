@@ -112,6 +112,24 @@ fetch('data.json').then(
         }</span>`
         currency.innerHTML= `Currencies: <span class='hero2__card__details__container--2__text__span'>${currencies.join()
         }</span>`;
+        try {
+            if (populateBorders(searchIndex)== undefined) ;
+           n=0;
+           borderhtml=''
+           while (n<data[searchIndex].borders.length) {
+              
+          const border=data.findIndex(x=>x.alpha3Code==populateBorders(searchIndex)[n])
+            
+                borderhtml+=`<li class='hero2__card__details__border__list__item'>${data[border].name}<li/>`
+   
+           n++ 
+         }
+         borders.innerHTML=borderhtml
+        } catch (error) {
+           console.log(error);
+            borders.innerHTML=`<li class='hero2__card__details__border__list__item--error'>None<li/>`
+        }
+    
         }
     }
         }
@@ -190,22 +208,24 @@ async function populateDetails(id) {
      }</span>`;
 
      //populate border countries
-     try {
-         if (populateBorders(id)== undefined) ;
-        n=0;
-        borderhtml=''
-        while (n<data[id].borders.length) {
-           
-       const border=data.findIndex(x=>x.alpha3Code==populateBorders(id)[n])
-         
-             borderhtml+=`<li class='hero2__card__details__border__list__item'>${data[border].name}<li/>`
-
-        n++ 
-      }
-      borders.innerHTML=borderhtml
-     } catch (error) {
-         borders.innerHTML=`<li class='hero2__card__details__border__list__item--error'>None<li/>`
-     }
+  
+        try {
+            if (populateBorders(id)== undefined) ;
+           n=0;
+           borderhtml=''
+           while (n<data[id].borders.length) {
+              
+          const border=data.findIndex(x=>x.alpha3Code==populateBorders(id)[n])
+            
+                borderhtml+=`<li class='hero2__card__details__border__list__item'>${data[border].name}<li/>`
+   
+           n++ 
+         }
+         borders.innerHTML=borderhtml
+        } catch (error) {
+            borders.innerHTML=`<li class='hero2__card__details__border__list__item--error'>None<li/>`
+        }
+    
      
     main.classList.toggle('display');
     main2.classList.toggle('display');
