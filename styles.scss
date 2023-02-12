@@ -349,7 +349,7 @@ font-weight: 900;
                 padding-left: 0rem;
                 gap: .4rem;
                 max-width: 100%;
-                overflow-x: wrap;
+                overflow-x: scroll;
 
                 &__item{
                     border: none;
@@ -547,9 +547,40 @@ ul svg{
            &__container{
                flex-direction: column;
                gap: 3rem;
-            min-width: 20rem;
+            max-width: 20rem;
 
         }
+
+        &__border{
+              grid-template-columns: auto;
+            padding-top: 3rem;
+            min-width: 310px;
+            height: 20rem;
+
+
+        &__list{
+            display: flex;
+            list-style-type: none;
+            margin-top: -7rem;
+            margin-left: 0;
+            padding-left: 0rem;
+            
+            gap: .4rem;
+          width: 100%;
+            overflow-x: hidden;
+
+            &__item{
+                border: none;
+                padding: .5rem 3rem;
+           width: 30%;
+           height: 4rem;
+     
+        
+            }
+
+         
+    }
+}
     }
     }
 }
