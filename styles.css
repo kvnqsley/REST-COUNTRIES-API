@@ -100,6 +100,7 @@ body, html {
   list-style: none;
   width: 10rem;
   left: 80%;
+  z-index: 100;
   top: -1rem;
 }
 .hero__input__dropdown__text {
@@ -112,7 +113,7 @@ body, html {
   width: 94%;
   position: absolute;
   left: 0;
-  height: 4rem;
+  height: 5.4rem;
   background-color: hsl(0deg, 0%, 100%);
   z-index: 100;
   padding-bottom: 4rem;
@@ -121,10 +122,10 @@ body, html {
 .hero__input__dropdown__menu__item {
   margin-bottom: -1rem;
   font-size: 0.8rem;
-  padding: -10rem;
   z-index: 1;
+  height: 2.8rem;
   cursor: pointer;
-  padding-left: 1rem;
+  padding-top: -2rem;
 }
 .hero__input__dropdown__menu--dark {
   background-color: #2B3743;

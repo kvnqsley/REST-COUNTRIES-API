@@ -25,6 +25,8 @@ const tld=document.querySelectorAll('.hero2__card__details__container--2__text')
 const currency=document.querySelectorAll('.hero2__card__details__container--2__text')[1];
 const lang=document.querySelectorAll('.hero2__card__details__container--2__text')[2];
 const borders=document.querySelector('.hero2__card__details__border__list')
+const regions =document.querySelectorAll('.hero__input__dropdown__menu__item')
+
 
 //Toggle theme
 
@@ -71,17 +73,15 @@ fetch('data.json').then(
 
   setTimeout(()=>{
   
- 
      inputSearch.addEventListener(
         'input', (e)=>{
-
+            let sectionHtml=''
             
             for (let i = 0; i < data.length; i++) {
        
                 const country=data[i].name;
 
-                //filter element
-            
+                
             const searchInput=inputSearch.value.trim().slice(0);
           
             if (country.startsWith(searchInput)) {
@@ -126,12 +126,19 @@ fetch('data.json').then(
          }
          borders.innerHTML=borderhtml
         } catch (error) {
-           console.log(error);
+           
             borders.innerHTML=`<li class='hero2__card__details__border__list__item--error'>None<li/>`
         }
-    
+        sectionHtml+= `<div class="hero__section__card">
+        <img src='${populateCountryimg(i)}'alt='flag' >
+        <p class="hero__section__card__country">${populateCountry(i)}</p>
+        <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Population:<span/>${populatePopulation(i)}</p>
+        
+        </div>`;
         }
+
     }
+    section.innerHTML=sectionHtml;
         }
     );
 
@@ -168,25 +175,21 @@ function populateBorders(id) {
     return data[id].borders 
 };
 
-//populating details
-let sectionHtml=''
-
+//populating main page
+ let sectionHtml='';
 for (let i = 0; i < data.length; i++) {
    sectionHtml+= `<div class="hero__section__card">
     <img src='${populateCountryimg(i)}'alt='flag' >
     <p class="hero__section__card__country">${populateCountry(i)}</p>
     <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Population:<span/>${populatePopulation(i)}</p>
     
-    </div>`
-
-   
-    
-}
+    </div>`;
+};
 section.innerHTML=sectionHtml
-console.log(data[30].alpha3Code);
+
 
 //Clicking each card for on the main page event
-async function populateDetails(id) {
+ function populateDetails(id) {
      main2Img.setAttribute('src',data[id].flags.png);
     main2Header.textContent=data[id].name;
     nativeName.innerHTML=`Native name: <span class='hero2__card__details__container--1__text__span'>${data[id].nativeName}</span>`;
@@ -231,29 +234,135 @@ async function populateDetails(id) {
     main2.classList.toggle('display');
 }
 
-for (let i = 0; i < data.length; i++) {
+(function(){
+    for (let i = 0; i < data.length; i++) {
    
-    const heroCards=document.querySelectorAll('.hero__section__card');
-  heroCards[i].onclick=  function () {
-       populateDetails(i)
-     window.scrollTo(top)
-    
+        const heroCards=document.querySelectorAll('.hero__section__card');
+      heroCards[i].onclick=  function () {
+           populateDetails(i)
+         window.scrollTo(top)
+        
+        }
+     
     }
+})();
 
-}
-const heroCards=document.querySelectorAll('.hero__section__card');
+
+   //filter by region
+   regions[0].onclick=function () {
+    let sectionHtml='';     
+    for (let i = 0; i < data.length; i++) {
+    
+        const  regionSelect=data.findIndex(x=>x.region==data[i].region)
+     if (data[regionSelect].region=='Africa') {
+
+        sectionHtml+= `<div class="hero__section__card">
+        <img src='${populateCountryimg(i)}'alt='flag' >
+        <p class="hero__section__card__country">${populateCountry(i)}</p>
+        <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Population:<span/>${populatePopulation(i)}</p>
+        
+        </div>`;
+     }
+
+     }
+    section.innerHTML=sectionHtml
+    }
+  
+    
+
+regions[1].onclick=function () {
+    let sectionHtml=''
+     for (let i = 0; i < data.length; i++) {
+         const  regionSelect=data.findIndex(x=>x.region==data[i].region)
+      if (data[regionSelect].region=='Americas') {
+         data[regionSelect].region
+       
+         sectionHtml+= `<div class="hero__section__card">
+         <img src='${populateCountryimg(i)}'alt='flag' >
+         <p class="hero__section__card__country">${populateCountry(i)}</p>
+         <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Population:<span/>${populatePopulation(i)}</p>
+         
+         </div>`;
+     
+         
+      }
+     }
+     section.innerHTML=sectionHtml
+ };
+
+
+
+regions[2].onclick=function () {
+   let sectionHtml=''
+    for (let i = 0; i < data.length; i++) {
+        const  regionSelect=data.findIndex(x=>x.region==data[i].region)
+     if (data[regionSelect].region=='Asia') {
+        data[regionSelect].region
+      
+        sectionHtml+= `<div class="hero__section__card">
+        <img src='${populateCountryimg(i)}'alt='flag' >
+        <p class="hero__section__card__country">${populateCountry(i)}</p>
+        <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Population:<span/>${populatePopulation(i)}</p>
+        
+        </div>`;
+    
+        
+     }
+    }
+    section.innerHTML=sectionHtml
+};
+
+regions[3].onclick=function () {
+    let sectionHtml=''
+     for (let i = 0; i < data.length; i++) {
+         const  regionSelect=data.findIndex(x=>x.region==data[i].region)
+      if (data[regionSelect].region=='Europe') {
+         data[regionSelect].region
+       
+         sectionHtml+= `<div class="hero__section__card">
+         <img src='${populateCountryimg(i)}'alt='flag' >
+         <p class="hero__section__card__country">${populateCountry(i)}</p>
+         <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Population:<span/>${populatePopulation(i)}</p>
+         
+         </div>`;
+     
+         
+      }
+     }
+     section.innerHTML=sectionHtml
+ };
+
+ regions[4].onclick=function () {
+    let sectionHtml=''
+     for (let i = 0; i < data.length; i++) {
+         const  regionSelect=data.findIndex(x=>x.region==data[i].region)
+      if (data[regionSelect].region=='Oceania') {
+         data[regionSelect].region
+       
+         sectionHtml+= `<div class="hero__section__card">
+         <img src='${populateCountryimg(i)}'alt='flag' >
+         <p class="hero__section__card__country">${populateCountry(i)}</p>
+         <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Population:<span/>${populatePopulation(i)}</p>
+         
+         </div>`;
+     
+         
+      }
+     }
+     section.innerHTML=sectionHtml
+ };
+
+ const heroCards=document.querySelectorAll('.hero__section__card');
 
 heroCards.forEach(element=>{
     theme.addEventListener('click',()=>{
         element.classList.toggle('hero__section__card--dark');
         });
     })
-
-
-
 }) 
 
 
 },5000).catch(err=>{
     console.error(err.name);
 });
+
