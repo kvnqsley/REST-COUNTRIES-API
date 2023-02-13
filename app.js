@@ -80,10 +80,9 @@ fetch('data.json').then(
             for (let i = 0; i < data.length; i++) {
        
                 const country=data[i].name;
-
-                
-            const searchInput=inputSearch.value.trim().slice(0);
-          
+git 
+                const validate=inputSearch.value.charAt(0).toUpperCase()+inputSearch.value.slice(1)
+            const searchInput=validate.trim().slice(0);
             if (country.startsWith(searchInput)) {
             
                 var search=country.search(searchInput);
