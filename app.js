@@ -132,7 +132,8 @@ fetch('data.json').then(
         <img src='${populateCountryimg(i)}'alt='flag' >
         <p class="hero__section__card__country">${populateCountry(i)}</p>
         <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Population:<span/>${populatePopulation(i)}</p>
-        
+        <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Region:<span/>${populateRegion(i)}</p>
+        <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Capital:<span/>${populateCapital(i)}</p>
         </div>`;
         }
 
@@ -168,10 +169,13 @@ function populateCountryimg(id) {
 function populatePopulation(id) {
     return data[id].population
 };
-function populateBorders(id) {
-
-    
-    return data[id].borders 
+function populateRegion(id) {
+    return data[id].region
+};
+function populateCapital(id) {
+    return data[id].capital
+};
+function populateBorders(id) {return data[id].borders 
 };
 
 //populating main page
@@ -181,7 +185,8 @@ for (let i = 0; i < data.length; i++) {
     <img src='${populateCountryimg(i)}'alt='flag' >
     <p class="hero__section__card__country">${populateCountry(i)}</p>
     <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Population:<span/>${populatePopulation(i)}</p>
-    
+    <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Region:<span/>${populateRegion(i)}</p>
+    <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Capital:<span/>${populateCapital(i)}</p>
     </div>`;
 };
 section.innerHTML=sectionHtml
@@ -259,7 +264,8 @@ section.innerHTML=sectionHtml
         <img src='${populateCountryimg(i)}'alt='flag' >
         <p class="hero__section__card__country">${populateCountry(i)}</p>
         <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Population:<span/>${populatePopulation(i)}</p>
-        
+        <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Region:<span/>${populateRegion(i)}</p>
+        <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Capital:<span/>${populateCapital(i)}</p>
         </div>`;
      }
 
@@ -280,7 +286,8 @@ regions[1].onclick=function () {
          <img src='${populateCountryimg(i)}'alt='flag' >
          <p class="hero__section__card__country">${populateCountry(i)}</p>
          <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Population:<span/>${populatePopulation(i)}</p>
-         
+         <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Region:<span/>${populateRegion(i)}</p>
+         <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Capital:<span/>${populateCapital(i)}</p>
          </div>`;
      
          
@@ -302,7 +309,8 @@ regions[2].onclick=function () {
         <img src='${populateCountryimg(i)}'alt='flag' >
         <p class="hero__section__card__country">${populateCountry(i)}</p>
         <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Population:<span/>${populatePopulation(i)}</p>
-        
+        <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Region:<span/>${populateRegion(i)}</p>
+        <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Capital:<span/>${populateCapital(i)}</p>
         </div>`;
     
         
@@ -322,7 +330,8 @@ regions[3].onclick=function () {
          <img src='${populateCountryimg(i)}'alt='flag' >
          <p class="hero__section__card__country">${populateCountry(i)}</p>
          <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Population:<span/>${populatePopulation(i)}</p>
-         
+         <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Region:<span/>${populateRegion(i)}</p>
+         <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Capital:<span/>${populateCapital(i)}</p>
          </div>`;
      
          
@@ -342,7 +351,8 @@ regions[3].onclick=function () {
          <img src='${populateCountryimg(i)}'alt='flag' >
          <p class="hero__section__card__country">${populateCountry(i)}</p>
          <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Population:<span/>${populatePopulation(i)}</p>
-         
+         <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Region:<span/>${populateRegion(i)}</p>
+         <p class="hero__section__card__population"><span class='hero__section__card__population__span'>Capital:<span/>${populateCapital(i)}</p>
          </div>`;
      
          
